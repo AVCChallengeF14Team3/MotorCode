@@ -5,35 +5,42 @@ extern "C" int init(int d_lev);
 extern "C" int Sleep( int sec , int usec );
 extern "C" int set_motor( int motor , int dir , int speed );
 
-int main (){
-
 init (1);       //Remember the d_lev is the debugging level. We want this on 1 almost permanently
 
 //FORWARD
+String ("Forward"){
 set_motor (1 , 1, 100);
 Sleep (0 ,5);
 set_motor (2 , 1, 100);
 Sleep (0 ,5);
+}
 //This is assuming that direction "1" is forwards. Only way to know if this is the case is through testing.
 
 //TURN ???? ON THE SPOT
+String ("????"){
 set_motor (1 , 1, 100);
 Sleep (0 ,5);
 set_motor (2 , 2, 100);
 Sleep (0 ,5);
+return ?? //Dont know if necessary will look up proper synax but battery is running out on laptop now so Ima call it for now.
+}
+
 //We need to test which motor responds to which. ie. which motor is motor "1" and which motor is motor "2". 
 
 //TURN THE OPPOSITE OF ???? ON THE SPOT
+String ("opposite of ????"){
 set_motor (1 , 2, 100);
 Sleep (0 ,5);
 set_motor (2 , 1, 100);
 Sleep (0 ,5);
+return ??
+}
+
 //Ditto for the above
 
-//We shouldnt need a "BACKWARDS" mehod so I won't bother with adding that one in
-//Im unsure if its the case but I am assuming that C++ has some way to call methods similar to what we have been doing in Java
-//If this is the case then we can make each of these different movements a method and hen have the camera code call the appropriate method at the appropriate time.
-//If the method calling is possible, we will also need to be able to vary the size of the values within each of the methods.
+// We shouldnt need a "BACKWARDS" mehod so I won't bother with adding that one in
+// Method calling IS possible in C++, therefore I believe the best course of action for us is to use it. 
+// As usual, we need to keep an eye out for proper syntax.
 // Next commit will detail this.
 
 return 0;
