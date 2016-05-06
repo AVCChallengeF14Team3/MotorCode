@@ -5,13 +5,32 @@ extern "C" int init(int d_lev);
 extern "C" int Sleep( int sec , int usec );
 extern "C" int set_motor( int motor , int dir , int speed );
 
-int main (){
+init (1);       
 
-init (0);
+//FORWARD
+String ("Forward"){
+set_motor (1 , 1, 100);
+Sleep (0 ,5);
+set_motor (2 , 1, 100);
+Sleep (0 ,5);
+}
+
+//TURN ???? ON THE SPOT
+String ("????"){
+set_motor (1 , 1, 100);
+Sleep (0 ,5);
+set_motor (2 , 2, 100);
+Sleep (0 ,5);
+}
+
+
+//TURN THE OPPOSITE OF ???? ON THE SPOT
+String ("opposite of ????"){
 set_motor (1 , 2, 100);
 Sleep (0 ,5);
-set_motor (1 , 2, 100);
+set_motor (2 , 1, 100);
 Sleep (0 ,5);
+}
 
 return 0;
 }
